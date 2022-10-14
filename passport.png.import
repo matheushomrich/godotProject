@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wallet.png-71d530ef8dcab6373192db731e14de47.stex"
+path="res://.import/passport.png-7689d63859aca44dbac40d0b87b9d42c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wallet.png"
-dest_files=[ "res://.import/wallet.png-71d530ef8dcab6373192db731e14de47.stex" ]
+source_file="res://passport.png"
+dest_files=[ "res://.import/passport.png-7689d63859aca44dbac40d0b87b9d42c.stex" ]
 
 [params]
 
