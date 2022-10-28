@@ -32,9 +32,9 @@ func _input(event):
 			
 	elif event is InputEventMouseMotion:
 		if dragging:
-			
+			print(newPosition)
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
-			if (newPosition.x >= 300) :
+			if (newPosition.x >= 30 and newPosition.y >= 80):
 				
 				for p in game_node.paper_stack:
 					if p.chosen == true:
