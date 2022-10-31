@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/buttonred.png-5d23a6290077aff01b3aad3f574669d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://Assets/buttonred.png"
+dest_files=[ "res://.import/buttonred.png-5d23a6290077aff01b3aad3f574669d0.stex" ]
 
 [params]
 

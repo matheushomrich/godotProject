@@ -22,34 +22,57 @@ func _input(event):
 			dir = (get_viewport().get_mouse_position() - position).normalized()
 			dragging = true
 			
-			sound_player.play_random_sound()
+			sound_player.play_random_dragstart()
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 			
-		else:
+		elif Input.is_action_just_released("mouse_click") && dragging:
 			dragging = false
 			chosen = false
+			sound_player.play_random_dragstop() 
 			
 			
 	elif event is InputEventMouseMotion:
 		if dragging:
-			print(newPosition)
+			
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
-			if (newPosition.x >= 30 and newPosition.y >= 80):
-				
+			if (newPosition.x >= 130 && newPosition.y >= -30) :
+				#print(newPosition)
 				for p in game_node.paper_stack:
 					if p.chosen == true:
 						#print(" chosen")
-						$image.texture = closed
-						$Label2.visible = false
+						open_paper()
 			else:
-				$image.texture = open
-				$Label2.visible = true
+				close_paper()
 			
 func _physics_process(delta):
 	if dragging:
 		move_and_slide((newPosition - position) * Vector2(30, 30))
+		
+func _ready():
+	close_paper()
 
+func open_paper():
+	$OpenCollision.disabled = false
+	$ClosedCollision.disabled = true
+	
+	$Closed.visible = false
+	$image.visible = true
+	$Nome.visible = true
+	$DOB.visible = true
+	$Sexo.visible = true
+	$Cidade.visible = true
 
+func close_paper():
+	$OpenCollision.disabled = true
+	$ClosedCollision.disabled = false
+	
+	$Closed.visible = true
+	$image.visible = false
+	$Nome.visible = false
+	$DOB.visible = false
+	$Sexo.visible = false
+	$Cidade.visible = false
+	
 func chosen():
 	chosen = true
 	
