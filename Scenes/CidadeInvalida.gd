@@ -4,7 +4,7 @@ extends Label
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var cities = ["Pelotas", "Gramado", "Alvorada", "São Leopoldo"]
+var cities = ["Pelotas", "Gramado", "Alvorada", "Sao Leopoldo"]
 func set_random_city():
 	var i: int = randi() % cities.size()
 	if cities[i]:
