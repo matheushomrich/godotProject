@@ -25,11 +25,11 @@ func _input(event):
 		var t = rand_generate.randi_range(0, 1)
 		if(t == 0):
 			type = "good"
-			print("DEBUG - Spawned good paper")
+			#print("DEBUG - Spawned good paper")
 			correct = true
 		else:
 			type = "bad"
-			print("DEBUG - Spawned bad paper")
+			#print("DEBUG - Spawned bad paper")
 			correct = false
 		currPaper = spawn_paper(type)
 		allowed = false

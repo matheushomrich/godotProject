@@ -47,7 +47,7 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PaperGetter"]
 shape = SubResource( 1 )
 
-[node name="Table" type="Sprite" parent="."]
-position = Vector2( 665, 482 )
-scale = Vector2( 0.906455, 0.739054 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 658, 412 )
+scale = Vector2( 0.773728, 0.802222 )
 texture = ExtResource( 5 )

@@ -47,7 +47,7 @@ func _input(event):
 			
 func _physics_process(delta):
 	if dragging:
-		move_and_slide((newPosition - position) * Vector2(30, 30))
+		move_and_slide((newPosition - position) * Vector2(25, 25))
 		
 func _ready():
 	close_paper()

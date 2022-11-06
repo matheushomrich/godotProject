@@ -14,7 +14,7 @@ extents = Vector2( 158.55, 202.792 )
 extents = Vector2( 71.5, 96.5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 11
+size = 8
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -58,10 +58,10 @@ position = Vector2( 262.5, 313.5 )
 shape = SubResource( 1 )
 
 [node name="Nome" type="Label" parent="."]
-margin_left = 196.0
-margin_top = 294.0
-margin_right = 324.0
-margin_bottom = 314.0
+margin_left = 199.0
+margin_top = 297.0
+margin_right = 327.0
+margin_bottom = 317.0
 size_flags_horizontal = 5
 custom_colors/font_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
 custom_fonts/font = SubResource( 2 )
