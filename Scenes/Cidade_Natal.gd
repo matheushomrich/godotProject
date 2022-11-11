@@ -5,7 +5,7 @@ extends Label
 var cities = ["Pelotas", "Gramado", "Alvorada", "Sao Leopoldo", "Porto Alegre"]
 func set_random_city():
 	var i: int = randi() % cities.size()
-	if cities[i]: 
+	if cities[i]:
 		text = cities[i]
 		
 func _ready():

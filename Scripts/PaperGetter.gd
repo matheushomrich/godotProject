@@ -3,6 +3,8 @@ extends Area2D
 func _ready():
 	pass
 	
+	
+# Faz a logica de determinar a posiçao dos objetos em relacao aos outros
 func _process(_delta):
 	position = get_global_mouse_position()
 
@@ -21,12 +23,9 @@ func _process(_delta):
 			if (b.z_index > max_index):
 				max_index = b.z_index
 				top_paper = b
-		
 		top_paper.chosen()
 		for b in get_overlapping_bodies():
 			if b != top_paper:
 				b.chosen = false
 		if (Input.is_action_just_pressed("mouse_click")):
 			get_parent().push_paper_to_top(top_paper)
-
-

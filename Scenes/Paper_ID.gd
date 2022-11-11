@@ -41,6 +41,7 @@ func _input(event):
 				#print(newPosition)
 				for p in game_node.paper_stack:
 					if p.chosen == true:
+						print(" chosen")
 						open_paper()
 			else:
 				close_paper()
@@ -51,7 +52,7 @@ func _physics_process(delta):
 		move_and_slide((newPosition - position) * Vector2(25, 25))
 		
 func _ready():
-	pass #close_paper()
+	close_paper()
 
  ## mudar pra papeis diferentes
 func open_paper():
@@ -62,9 +63,10 @@ func open_paper():
 	$image.visible = true
 	$Nome.visible = true
 	$DOB.visible = true
-	$Sexo.visible = true
-	$Cidade.visible = true
-
+	$DOE.visible = true
+	$Cidade_Natal.visible = true
+	$RN.visible = true
+	
 func close_paper():
 	$OpenCollision.disabled = true
 	$ClosedCollision.disabled = false
@@ -73,13 +75,13 @@ func close_paper():
 	$image.visible = false
 	$Nome.visible = false
 	$DOB.visible = false
-	$Sexo.visible = false
-	$Cidade.visible = false
-
-func set_rn(id):
-	$RN.text = id
+	$DOE.visible = false
+	$Cidade_Natal.visible = false
+	$RN.visible = false
 	
-
+func get_rn():
+	return $RN.text
+	
 func chosen():
 	chosen = true
 	
