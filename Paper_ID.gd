@@ -12,16 +12,17 @@ var chosen = false
 onready var sound_player = get_node("/root/Game/AudioStreamPlayer")
 onready var game_node = get_node("/root/Game")
 
-onready var closed = preload("res://Assets/passport-closed.jpg")
-onready var open = preload("res://Assets/passport.png")
+onready var closed = preload("res://Assets/ID_closed.png")
+onready var open_back = preload("res://Assets/ID_back.png")
 
 # Logica de arrastar e largar documentos
 
-func init(nome, dob, sexo, cidade, rn):
+func init(nome, dob, sexo, cidade_natal, rn, doe):
 	$Nome.text = nome
 	$DOB.text = dob
+	$DOE.text = doe
 	$Sexo.text = sexo
-	$Cidade.text = cidade
+	$Cidade_Natal.text = cidade_natal
 	$RN.text = rn
 
 func _input(event):
@@ -44,7 +45,7 @@ func _input(event):
 		if dragging:
 			
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
-			if (newPosition.x >= 130 && newPosition.y >= -30) :
+			if (newPosition.x >= 120 && newPosition.y >= -100) :
 				#print(newPosition)
 				for p in game_node.paper_stack:
 					if p.chosen == true:
@@ -58,7 +59,7 @@ func _physics_process(delta):
 		move_and_slide((newPosition - position) * Vector2(25, 25))
 		
 func _ready():
-	pass #close_paper()
+	close_paper()
 
  ## mudar pra papeis diferentes
 func open_paper():
@@ -69,9 +70,10 @@ func open_paper():
 	$image.visible = true
 	$Nome.visible = true
 	$DOB.visible = true
-	$Sexo.visible = true
-	$Cidade.visible = true
-
+	$DOE.visible = true
+	$Cidade_Natal.visible = true
+	$RN.visible = true
+	
 func close_paper():
 	$OpenCollision.disabled = true
 	$ClosedCollision.disabled = false
@@ -80,10 +82,13 @@ func close_paper():
 	$image.visible = false
 	$Nome.visible = false
 	$DOB.visible = false
-	$Sexo.visible = false
-	$Cidade.visible = false
+	$DOE.visible = false
+	$Cidade_Natal.visible = false
+	$RN.visible = false
 	
-
+func get_rn():
+	return $RN.text
+	
 func chosen():
 	chosen = true
 	
