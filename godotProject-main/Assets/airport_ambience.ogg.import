@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/airport_ambience.ogg-aac87ea3a5652648e1c2b997d40efb39.oggstr"
+
+[deps]
+
+source_file="res://Assets/airport_ambience.ogg"
+dest_files=[ "res://.import/airport_ambience.ogg-aac87ea3a5652648e1c2b997d40efb39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
