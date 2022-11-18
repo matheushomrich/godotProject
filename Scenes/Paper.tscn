@@ -10,7 +10,7 @@
 [ext_resource path="res://RN.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 165.125, 250.238 )
+extents = Vector2( 113.307, 176.246 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 85.5, 111.25 )
@@ -41,9 +41,9 @@ collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Closed" type="Sprite" parent="."]
-position = Vector2( 262.391, 315.159 )
+position = Vector2( 245.994, 296.87 )
 rotation = -0.10821
-scale = Vector2( 0.273031, 0.266555 )
+scale = Vector2( 0.186987, 0.186741 )
 texture = ExtResource( 6 )
 
 [node name="image" type="Sprite" parent="."]
@@ -52,8 +52,7 @@ scale = Vector2( 0.35387, 0.361111 )
 texture = ExtResource( 3 )
 
 [node name="ClosedCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 262.366, 314.716 )
+position = Vector2( 246.171, 296.637 )
 rotation = -0.10821
 scale = Vector2( 0.273031, 0.266555 )
 shape = SubResource( 5 )

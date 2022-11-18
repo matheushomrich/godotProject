@@ -17,11 +17,11 @@ onready var open_back = preload("res://Assets/ID_back.png")
 
 # Logica de arrastar e largar documentos
 
-func init(nome, dob, sexo, cidade_natal, rn, doe):
+func init(nome, dob, cidade_natal, rn, doe):
 	$Nome.text = nome
 	$DOB.text = dob
 	$DOE.text = doe
-	$Sexo.text = sexo
+#	$Sexo.text = sexo
 	$Cidade_Natal.text = cidade_natal
 	$RN.text = rn
 

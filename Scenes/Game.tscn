@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/PaperGetter.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/AudioStreamPlayer.gd" type="Script" id=3]
 [ext_resource path="res://Assets/airport_background.png" type="Texture" id=4]
 [ext_resource path="res://Assets/table.png" type="Texture" id=5]
+[ext_resource path="res://Assets/booth_glass.png" type="Texture" id=6]
 [ext_resource path="res://Assets/BMmini.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/airport_ambience.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Background.gd" type="Script" id=9]
@@ -57,9 +58,14 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PaperGetter"]
 shape = SubResource( 1 )
 
+[node name="BoothGlass" type="Sprite" parent="."]
+position = Vector2( 456, 295 )
+scale = Vector2( 1.16282, 1.28889 )
+texture = ExtResource( 6 )
+
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 646.125, 405.25 )
-scale = Vector2( 0.806396, 0.832222 )
+position = Vector2( 647, 402 )
+scale = Vector2( 0.806396, 0.847778 )
 texture = ExtResource( 5 )
 
 [connection signal="finished" from="Background" to="Background" method="_finished"]

@@ -3,42 +3,44 @@ extends Node2D
 
 
 var rand_generate = RandomNumberGenerator.new()
-onready var paper := preload("res://Scenes/Paper.tscn")
+onready var paper_passport := preload("res://Scenes/Paper.tscn")
 onready var paper_id := preload("res://Scenes/Paper_ID.tscn")
 var points = 0
 onready var first_names_m = ["Gustavo", "Hojin", "Matheus", "Lucca", "Marcelo"]
 onready var first_names_f = ["Larissa", "Julia", "Rafaela", "Barbara", "Catharina"]
 onready var last_names =  ["Geyer", "Ryu", "Holmsreich", "Molon", "Cohen"]
+
+var cities = ["Pelotas", "Gramado", "Alvorada", "Sao Leopoldo", "Porto Alegre"]
+
 # Seta um nome aleatorio da lista
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$label.text = str(points)
 	$label.add_color_override("font_color", Color(200, 200, 200))
 	
-func spawn_doc_set(valid):
-	var papers
-	#var p1 = spawn_paper("bad")
-	#var p2 = spawn_paper("good")
-		
-	#p2.set_rn(p1.get_rn()) 		
-#		rand_generate.randomize()
-#		var t = rand_generate.randi_range(0, 1)
-#		if(t == 0):
-#			type = "good"
-#			#print("DEBUG - Spawned good paper")
-#			correct = true
-#		else:
-#			type = "bad"
-#			#print("DEBUG - Spawned bad paper")
-#			correct = false
-#		currPaper = spawn_paper(type)
-#		#allowed = false
-#		print(str(currPaper.get_instance_id()))
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func create_entrant(valid):
+	rand_generate.randomize()
+	var entrant
+	
+	if (randf() > 0.5): # 50/50 entre gerar homem ou mulher
+		entrant = spawn_doc_set_1("M")
+	else:
+		entrant = spawn_doc_set_1("F")
+	
+	return entrant
+#	
+
+func generate_random_city():
+	rand_generate.randomize()
+	var city
+	var i: int = randi() % cities.size()
+	if cities[i]: 
+		city = cities[i]
+	return city
+
 func generate_id():
 	rand_generate.randomize()
-	return str(self.get_instance_id())+str(rand_generate.randi_range(100, 999))
+	return str(rand_generate.randi_range(1000000, 9999999))
 	
 func generate_date(type):
 	rand_generate.randomize()
@@ -54,7 +56,7 @@ func generate_date(type):
 func generate_name(sexo):
 	var first_name
 	var last_name
-	if(sexo == "m"): 
+	if(sexo == "M"): 
 		var i: int = randi() % first_names_m.size()
 		if first_names_m[i]:
 			first_name = first_names_m[i]
@@ -69,15 +71,32 @@ func generate_name(sexo):
 	return [first_name, last_name]
 	
 
-func spawn_paper(type):
-	var paper
-	if(type == "bad"):
-		paper = paper_id.instance()
-	else:
-		paper = paper.instance()
-	paper.input_pickable = true
+func spawn_doc_set_1(sex):
+	var passport
+	var id
 	
-	return paper
+	var name_array = generate_name(sex)
+	var dob = generate_date("dob")
+	var iss = generate_random_city()
+	var nat = generate_random_city()
+	var rn = generate_id()
+	var doe = generate_date("doe")
+	
+	
+	id = paper_id.instance()
+	id.init(str(name_array[0]+" "+name_array[1]), #fazer isso no init!!
+	dob,  
+	nat, 
+	rn, 
+	doe)
+	
+	passport = paper_passport.instance()
+	passport.init(str(name_array[1]+", "+name_array[0]), dob, sex, iss, rn)
+	
+	passport.input_pickable = true
+	id.input_pickable = true
+	
+	return [passport, id]
 	#print(paper)
 	
 

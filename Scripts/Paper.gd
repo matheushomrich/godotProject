@@ -71,7 +71,7 @@ func open_paper():
 	$DOB.visible = true
 	$Sexo.visible = true
 	$Cidade.visible = true
-
+	$RN.visible = true
 func close_paper():
 	$OpenCollision.disabled = true
 	$ClosedCollision.disabled = false
@@ -82,6 +82,7 @@ func close_paper():
 	$DOB.visible = false
 	$Sexo.visible = false
 	$Cidade.visible = false
+	$RN.visible = false
 	
 
 func chosen():
