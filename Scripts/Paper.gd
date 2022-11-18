@@ -23,6 +23,21 @@ func init(nome, dob, sexo, cidade, rn):
 	$Sexo.text = sexo
 	$Cidade.text = cidade
 	$RN.text = rn
+	
+func set_att(attribute, text):
+	var att
+	match attribute:
+		0:
+			$Nome.text = text
+		1:
+			$DOB.text = text
+		2:
+			$Sexo.text = text
+		3:
+			$Cidade.text = text
+		4:
+			$RN.text = text
+		
 
 func _input(event):
 	if event is InputEventMouseButton:
