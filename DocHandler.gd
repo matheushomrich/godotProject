@@ -115,10 +115,29 @@ func spawn_doc_set_1(valid):
 		var att
 		match i:
 			0:
-				passport.set_att(i, generate_person()[0])
+				var name = generate_person()[0]
+				while(name == f_name):
+					generate_person()[0]
+				att = l_name+", "+name
+			1:
+				var name = generate_person()[1]
+				while(name == l_name):
+					generate_person()[0]
+				att = name+", "+f_name
+			2:
+				att = generate_date("dob")
+			3: 
+				if(sex == "M"):
+					att = "F"
+				else:
+					att = "M"
+			4:
+				att = "_&"+iss+"__"
+			5:
+				att = generate_id()
 				
-		
-		print("invalid")
+		passport.set_att(i, att)
+		print(str(i)+", att= "+att)
 		
 	passport.input_pickable = true
 	id.input_pickable = true

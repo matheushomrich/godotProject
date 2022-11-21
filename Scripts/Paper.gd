@@ -30,14 +30,15 @@ func set_att(attribute, text):
 		0:
 			$Nome.text = text
 		1:
-			$DOB.text = text
+			$Nome.text = text
 		2:
-			$Sexo.text = text
+			$DOB.text = text
 		3:
-			$Cidade.text = text
+			$Sexo.text = text
 		4:
+			$Cidade.text = text
+		5:
 			$RN.text = text
-		
 
 func _input(event):
 	if event is InputEventMouseButton:

@@ -23,7 +23,7 @@ func _input(event):
 	var type
 	
 	if(Input.is_key_pressed(KEY_SPACE) && allowed):
-		var papers = doc_handler.spawn_doc_set_1(true)
+		var papers = doc_handler.spawn_doc_set_1(false)
 		reg_instances(papers)
 #		print(papers[0])
 	if(Input.is_key_pressed(KEY_1) && !allowed):
