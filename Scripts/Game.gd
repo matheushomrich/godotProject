@@ -22,32 +22,33 @@ func _ready():
 func _input(event):
 	var type
 	
+	if($RejectButton/TextureButton.pressed && !allowed):
+		deny_paper(currPaper)
+	if($AcceptButton/TextureButton.pressed && !allowed):
+		accept_paper(currPaper)
+				
+	
 	if(Input.is_key_pressed(KEY_SPACE) && allowed):
 		var papers = doc_handler.spawn_doc_set_1(false)
 		reg_instances(papers)
-#		print(papers[0])
-	if(Input.is_key_pressed(KEY_1) && !allowed):
-		accept_paper(currPaper)
-	elif(Input.is_key_pressed(KEY_2) && !allowed):
-		deny_paper(currPaper)
 
 func accept_paper(paper):
 	if(correct):
-		$PointsLabel.points += 10
-		$PointsLabel.get_node("label").text = str($PointsLabel.points)
+		$DocHandler.points += 10
+		$DocHandler.get_node("label").text = str($DocHandler.points)
 	else:
-		$PointsLabel.points -= 10
-		$PointsLabel.get_node("label").text = str($PointsLabel.points)
+		$DocHandler.points -= 10
+		$DocHandler.get_node("label").text = str($DocHandler.points)
 	#erase_paper(paper)
 	allowed = true
 	
 func deny_paper(paper):
 	if(!correct):
-		$PointsLabel.points += 10
-		$PointsLabel.get_node("label").text = str($PointsLabel.points)
+		$DocHandler.points += 10
+		$DocHandler.get_node("label").text = str($DocHandler.points)
 	else:
-		$PointsLabel.points -= 10
-		$PointsLabel.get_node("label").text = str($PointsLabel.points)
+		$DocHandler.points -= 10
+		$DocHandler.get_node("label").text = str($DocHandler.points)
 	#erase_paper(paper)
 	allowed = true
 func add_paper(paper):
