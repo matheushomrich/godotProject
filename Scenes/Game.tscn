@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/PaperGetter.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://Assets/airport_ambience.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Background.gd" type="Script" id=9]
 [ext_resource path="res://DocHandler.gd" type="Script" id=10]
+[ext_resource path="res://Assets/rejectMainButton.png" type="Texture" id=11]
+[ext_resource path="res://Assets/rejectButtonPressed.png" type="Texture" id=12]
+[ext_resource path="res://Assets/AcceptMainButton.png" type="Texture" id=13]
+[ext_resource path="res://Assets/AcceptedButtonPressed.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -67,5 +71,28 @@ texture = ExtResource( 6 )
 position = Vector2( 647, 402 )
 scale = Vector2( 0.806396, 0.847778 )
 texture = ExtResource( 5 )
+
+[node name="RejectButton" type="Node" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="RejectButton"]
+margin_left = 389.0
+margin_top = 243.0
+margin_right = 608.0
+margin_bottom = 313.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+stretch_mode = 1
+
+[node name="AcceptButton" type="Node" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="AcceptButton"]
+margin_left = 746.0
+margin_top = 243.0
+margin_right = 965.0
+margin_bottom = 313.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
 
 [connection signal="finished" from="Background" to="Background" method="_finished"]
